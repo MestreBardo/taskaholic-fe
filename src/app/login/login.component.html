@@ -1,0 +1,31 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="py-2 col-10 offset-1 col-lg-4 offset-lg-4 vertical-center border border-info rounded">
+      <div class="d-flex justify-content-center">
+        <H4 class="mb-4 newFont">Task-A-Holic</H4>
+      </div>
+        <div class="form-group">
+          <label for="inputEmail">Email</label>
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <span class="input-group-text noColor border border-info" id="basic-addon3"><i class="fas fa-at"></i></span>
+            </div>
+            <input [(ngModel)] = "user.Email" type="text" class="form-control border border-info" id="inputEmail" placeholder="Inserir Email" aria-describedby="basic-addon3" >
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputSenha">Senha</label>
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <span class="input-group-text noColor border border-info" id="basic-addon3"><i class="fas fa-key"></i></span>
+            </div>
+            <input [(ngModel)] = "user.Password" type="password" class="form-control border border-info" id="inputSenha" placeholder="Inserir Senha" aria-describedby="basic-addon3">
+          </div>
+        </div>
+        <div *ngIf="errorDisplay !== ''" class="alert alert-danger" role="alert">
+            {{ errorDisplay }}
+        </div>
+        <button type="submit" class="btn btn-outline-info float-right" (click) = "login()">Sign in</button>
+    </div>
+  </div>
+</div>

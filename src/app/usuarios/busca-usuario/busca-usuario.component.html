@@ -1,0 +1,30 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2 col-12">
+            <h4>Buscar Usuários</h4>
+            <hr class="border-top border-info">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2 col-12">
+            <div class="form-row">
+                <div class="col-10 mb-3">
+                    <input type="text" [(ngModel)]="buscaParam" class="form-control border rounded border-info" id="validationDefault03" placeholder="Buscar usuário pelo email" required>
+                </div>
+                <div class="col-2 mb-3">
+                    <button [disabled]="buscaParam === ''" (click)="onSearching()" class="btn btn-outline-info btn-block"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" *ngIf="searching">
+        <div class="col-lg-8 offset-lg-2 col-12 mb-2" *ngFor="let user of users">
+            <app-card-usuario [user] = user></app-card-usuario>
+        </div>
+    </div>
+    <div class="col-lg-8 offset-lg-2 col-12 mb-2">
+        <div *ngIf="errorDisplay !== ''" class="alert alert-danger" role="alert">
+            {{ errorDisplay }}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="fixed m-5" (click)="OnAddNewTask()">
+    <button class="btn btn-outline-info p-3 whiteBack"><i class="fas fa-plus fa-2x"></i></button>
+</div>
+<div *ngIf="newTask" class="fixedBottom border border-info">
+    <div class="p-4">
+        <div class="form-group mb-1">
+            <input type="text" class="form-control  border border-info" [(ngModel)]="tarefa.Titulo" id="exampleInputTarefa" aria-describedby="TarefaHelp" placeholder="Inserir nome tarefa">
+        </div>
+        <div class="form-group mb-1">
+            <textarea class="form-control noresize border border-info" [(ngModel)]="tarefa.Descricao" rows="3" id="comment" placeholder="Insira a descrição da tarefa"></textarea>
+        </div>
+        <div *ngIf="errorDisplay != ''" class="alert alert-danger mb-1" role="alert">
+            {{errorDisplay}}
+        </div>
+        <button class="btn btn-outline-info float-right mb-2" (click)="adicionarTarefa()">Adicionar</button>
+        <button class="btn btn-outline-secondary float-right mr-2 mb-2" (click)="fechar()">Cancelar</button>
+        <br>
+    </div>
+</div>
+<div *ngIf="newTask" class="absolute"></div>

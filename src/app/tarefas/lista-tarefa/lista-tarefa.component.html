@@ -1,0 +1,54 @@
+<div class="container border border-info py-2">
+        <div *ngIf="!isEdit">
+            <div class="row mb-2">
+                <div class="col-11" >
+                    <h4 [ngClass]="textMarked()">{{ tarefa.titulo }}</h4>
+                </div>
+                <div class="col-1" (click)="onClickEdit()">
+                    <i class="fas fa-edit"></i>
+                </div>
+            </div>
+            <hr class="border-top border-info">
+            <div class="row mb-2">
+                <div class="col-12">
+                    <p> {{ tarefa.descricao }}</p>
+                </div>
+            </div>
+            <div *ngIf="!isChangeActive" class="d-flex justify-content-end">
+                <button class="btn btn-outline-info" (click)="onChangeActive()"> {{ modificar }} </button>
+            </div>
+            <div *ngIf="isChangeActive">
+                <div class="alert alert-danger mt-2 mb-2" role="alert">
+                    Deseja mesmo {{ modificar }} a tarefa?
+                </div>
+                <div class="d-flex justify-content-end">
+                    <button class="btn btn-outline-secondary mr-1" (click)="onChangeActive()">Cancelar</button>
+                    <button class="btn btn-outline-info" (click)="onAcceptChangeActive()">{{ modificar }}</button>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="isEdit">
+                <div class="form-group mb-1">
+                    <input type="text" class="form-control" [disabled]="tarefa.isComplet" [(ngModel)]="editingTarefa.titulo"  id="exampleInputTarefa" aria-describedby="TarefaHelp" placeholder="Inserir nome tarefa">
+                </div>
+                <div class="form-group mb-1">
+                    <textarea class="form-control noresize" [disabled]="tarefa.isComplet" [(ngModel)]="editingTarefa.descricao"  rows="3" id="comment" placeholder="Insira a descrição da tarefa"></textarea>
+                <br>
+                <div *ngIf="!isDeleting" class="d-flex justify-content-end">
+                    <button type="submit" class="btn btn-outline-danger mr-1" (click)="OnTryDeleting()">Excluir</button>
+                    <button type="submit" class="btn btn-outline-secondary mr-1" (click)="onCancelEditing()">Cancelar</button>
+                    <button type="submit" [disabled]="tarefa.isComplet" class="btn btn-outline-info mr-1" (click)="OnModify()">Modificar</button>
+                </div>
+                <div *ngIf="isDeleting">
+                    <div class="alert alert-danger mt-2 mb-2" role="alert">
+                        Deseja Excluir a tarefa?
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        <button type="submit" class="btn btn-outline-secondary mr-1" (click)="onCancelDeleting()">Cancelar</button>
+                        <button type="submit" class="btn btn-outline-danger mr-1" (click)="onDeleteForReal()" >Excluir</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>

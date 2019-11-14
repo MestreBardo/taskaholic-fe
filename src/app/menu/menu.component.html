@@ -1,0 +1,6 @@
+<div class="d-flex justify-content-center border border-info mb-2">
+    <a class="p-3" *ngIf="outerMenu" [routerLink]="['home/usuarios/registra']" routerLinkActive="linkActivate" > Registrar Usuário</a>
+    <a class="p-3" *ngIf="outerMenu" [routerLink]="['home/usuarios/busca']" routerLinkActive="linkActivate"> Buscar Usuário</a>
+    <a class="p-3" [routerLink]="['/home/tarefas']" routerLinkActive="linkActivate"> Tarefas</a>
+    <a class="p-3 ml-auto" (click)="logout()"> Logout</a>
+</div>

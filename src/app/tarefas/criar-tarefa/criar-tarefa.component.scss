@@ -1,0 +1,28 @@
+.fixed{
+    z-index: 200;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    cursor: pointer;
+}
+
+.fixedBottom {
+    z-index: 600 !important;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    background-color: white;
+}
+
+.absolute{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(204, 253, 247, 0.61);
+    z-index: 300;
+    position: fixed;
+    top: 0;
+}
+
+.whiteBack{
+    background-color: white;
+}
